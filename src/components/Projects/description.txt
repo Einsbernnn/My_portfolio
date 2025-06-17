@@ -1,0 +1,18 @@
+Eco-Sequencher
+Eco-Sequencher is a smart, compact reverse vending machine designed to promote eco-friendly behavior by turning plastic waste into clean, drinkable water. Powered by a Raspberry Pi, the system uses OpenCV and machine learning to detect and identify plastic bottles. Only empty, valid PET bottles are accepted—verified by a load sensor—then compacted by a linear actuator to save internal space.
+Each transaction is linked to a user’s RFID card, which securely tracks points earned from bottle deposits. These points can be redeemed for filtered water, delivered through a 3-stage filtration process (sediment, carbon, and CTO filters) and a UV sterilizer that ensures safe, potable output.
+Eco-Sequencher fuses intelligent automation, computer vision, and water treatment into one sustainable device. It offers a practical and rewarding way to reduce plastic pollution while providing accessible, clean drinking water—making it an ideal solution for smart, green environments.
+AI – Vital
+AI-Vital is a next-generation health monitoring and diagnostic system that combines biomedical sensors, RFID identification, and AI-driven analysis to deliver fast, accurate, and personalized healthcare insights.
+The system captures multiple vital signs in real-time, including body temperature, ECG, SpO₂, pulse rate, and blood pressure, through sensor modules powered by Arduino and ESP32 microcontrollers written in C++.
+Patients are identified via RFID cards, enabling seamless tracking of their medical history, vital logs, and medication records. Each user’s data is securely stored and managed through a PHP and MySQL-based web dashboard.
+AI-Vital integrates OpenAI’s diagnostic model to analyze sensor data and generate intelligent diagnostic feedback—offering potential health condition summaries and suggestions, similar to a virtual nurse or doctor.
+An integrated emailing system sends real-time diagnosis reports, alerts, or recommendations to users, ensuring they stay informed and engaged in managing their health—even remotely.
+From sensor data to smart diagnosis and secure history tracking, AI-Vital is a full-stack IoT healthcare platform designed for clinics, telemedicine, and smart health stations.
+
+Vigilant-Eye
+Vigilant Eye is an advanced surveillance system that combines AI-driven facial recognition, motion detection, and instant notification technologies to enhance security in homes and facilities. Powered by a Raspberry Pi, the system uses OpenCV to identify faces in real-time, while a PIR sensor detects motion and triggers the camera to follow the subject using a servo motor.
+When motion is detected, the system checks if the face belongs to a known (trusted) user or an unknown intruder. If an intruder is detected, it immediately activates a buzzer alarm and flashes a relay-controlled LED light to warn the surroundings. Simultaneously, a notification is sent via Telegram, providing real-time alerts directly to the user’s mobile device. Even when a trusted user is detected, the system logs the event and sends a Telegram update, ensuring transparency and constant awareness.
+Users can control the camera directly through Telegram, issuing commands to rotate, enable or disable motion detection, or adjust monitoring behavior—all remotely and securely. The system also features a dedicated web interface, developed with Vue.js and Python, which allows users to monitor activity, retrain the facial recognition model, and manage trusted users seamlessly.
+By combining intelligent automation, AI-based identification, and direct communication through Telegram, Vigilant Eye offers a proactive and highly responsive solution to modern security challenges.
+
