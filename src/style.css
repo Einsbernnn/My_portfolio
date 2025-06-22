@@ -479,7 +479,8 @@ button:focus {
   position: relative !important;
   padding-top: 150px !important;
   padding-bottom: 30px !important;
-  background-image: var(--image-gradient) !important;
+  /* Remove background-image to allow particles to show through */
+  background-image: none !important;
   background-position: top center !important;
   background-repeat: no-repeat !important;
   z-index: 2;
@@ -582,7 +583,8 @@ button:focus {
   position: relative !important;
   padding-top: 150px !important;
   padding-bottom: 30px !important;
-  background-image: var(--image-gradient) !important;
+  /* Remove background-image to allow particles to show through */
+  background-image: none !important;
   background-position: top center !important;
   background-repeat: no-repeat !important;
   color: white !important;
@@ -647,7 +649,8 @@ button:focus {
   position: relative !important;
   padding-top: 110px !important;
   padding-bottom: 30px !important;
-  background-image: var(--image-gradient) !important;
+  /* Remove background-image to allow particles to show through */
+  background-image: none !important;
   background-position: top center !important;
   background-repeat: no-repeat !important;
   color: white !important;

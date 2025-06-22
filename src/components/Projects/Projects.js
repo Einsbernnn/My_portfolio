@@ -12,10 +12,10 @@ function Projects() {
   return (
     <Container fluid className="project-section">
       <Container>
-        <h1 className="project-heading">
+        <h1 className="project-heading" style={{ textAlign: "center", width: "100%" }}>
           My Recent <strong className="purple">Works </strong>
         </h1>
-        <p style={{ color: "white" }}>
+        <p style={{ color: "white", textAlign: "center", width: "100%", marginBottom: 32 }}>
           Here are a few projects I've worked on recently.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
@@ -34,11 +34,12 @@ function Projects() {
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={aivital}
+              imgPaths={Array.from({length: 33}, (_, i) => require(`../../../Images/AI-Vital/AI${33-i}.PNG`))}
               isBlog={false}
               title="AI-Vital"
               description="An advanced health monitoring system that combines biomedical sensors with AI-driven analysis. Features real-time vital sign monitoring, RFID-based patient identification, and intelligent diagnostic feedback. Perfect for clinics, telemedicine, and smart health stations."
               fullDescription="AI-Vital is a next-generation health monitoring and diagnostic system that combines biomedical sensors, RFID identification, and AI-driven analysis to deliver fast, accurate, and personalized healthcare insights.\n\nThe system captures multiple vital signs in real-time, including body temperature, ECG, SpO₂, pulse rate, and blood pressure, through sensor modules powered by Arduino and ESP32 microcontrollers written in C++.\n\nPatients are identified via RFID cards, enabling seamless tracking of their medical history, vital logs, and medication records. Each user's data is securely stored and managed through a PHP and MySQL-based web dashboard.\n\nAI-Vital integrates OpenAI's diagnostic model to analyze sensor data and generate intelligent diagnostic feedback—offering potential health condition summaries and suggestions, similar to a virtual nurse or doctor.\n\nAn integrated emailing system sends real-time diagnosis reports, alerts, or recommendations to users, ensuring they stay informed and engaged in managing their health—even remotely.\n\nFrom sensor data to smart diagnosis and secure history tracking, AI-Vital is a full-stack IoT healthcare platform designed for clinics, telemedicine, and smart health stations."
-              ghLink="https://github.com/soumyajit4419/Bits-0f-C0de"
+              ghLink="https://github.com/Einsbernnn/AI_Vital"
               demoLink="https://blogs.soumya-jit.tech/"
             />
           </Col>
