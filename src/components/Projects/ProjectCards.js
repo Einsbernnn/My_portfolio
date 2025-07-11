@@ -1,11 +1,12 @@
 import { Button } from "react-bootstrap";
 import React, { useState } from "react";
 
-function ProjectCard({ imgPath, imgPaths = [], title, description, fullDescription, ghLink, demoLink, isBlog }) {
+function ProjectCard({ imgPaths = [], videoUrl, title, description, fullDescription, ghLink, demoLink, isBlog }) {
   const [current, setCurrent] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
   const [showGallery, setShowGallery] = useState(false);
   const [galleryIndex, setGalleryIndex] = useState(0);
+  const [showVideo, setShowVideo] = useState(false);
 
   // Function to truncate description
   const truncateDescription = (text, maxLength = 150) => {
@@ -37,12 +38,15 @@ function ProjectCard({ imgPath, imgPaths = [], title, description, fullDescripti
     setGalleryIndex((prev) => (imgPaths.length > 0 ? (prev - 1 + imgPaths.length) % imgPaths.length : 0));
   };
 
-  // Use either single image or first image from array
-  const currentImage = imgPath || (imgPaths.length > 0 ? imgPaths[current] : null);
+  const openVideo = () => setShowVideo(true);
+  const closeVideo = () => setShowVideo(false);
+
+  // Use first image for card preview
+  const currentImage = imgPaths.length > 0 ? imgPaths[0] : null;
 
   return (
     <div className="project-card-inner" style={{
-      background: "rgba(35,47,71,0.85)", // semi-transparent, allows particles to show through
+      background: "rgba(35,47,71,0.85)",
       borderRadius: "16px",
       boxShadow: "0 6px 24px rgba(0,0,0,0.18)",
       border: "2px solid #2196f3",
@@ -119,7 +123,7 @@ function ProjectCard({ imgPath, imgPaths = [], title, description, fullDescripti
               objectFit: "cover",
               borderRadius: "10px",
               boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-              border: "2px solid #2196f3" // blue
+              border: "2px solid #2196f3"
             }}
           />
         )}
@@ -151,13 +155,12 @@ function ProjectCard({ imgPath, imgPaths = [], title, description, fullDescripti
           GitHub
         </Button>
         <Button
-          href={title === "AI-Vital" ? undefined : (demoLink || undefined)}
-          target={title === "AI-Vital" ? undefined : (demoLink ? "_blank" : undefined)}
-          rel={title === "AI-Vital" ? undefined : (demoLink ? "noopener noreferrer" : undefined)}
+          href={demoLink || undefined}
+          target={demoLink ? "_blank" : undefined}
+          rel={demoLink ? "noopener noreferrer" : undefined}
           variant="primary"
           style={{ minWidth: 90, color: "#fff", background: "#6c2eb7", border: "none", flex: 1, maxWidth: 120 }}
-          disabled={!demoLink && title !== "AI-Vital"}
-          onClick={title === "AI-Vital" ? () => setShowGallery(true) : undefined}
+          disabled={!demoLink}
         >
           Demo
         </Button>
@@ -168,6 +171,15 @@ function ProjectCard({ imgPath, imgPaths = [], title, description, fullDescripti
         >
           Gallery
         </Button>
+        {videoUrl && (
+          <Button
+            variant="primary"
+            style={{ minWidth: 90, color: "#fff", background: "#6c2eb7", border: "none", flex: 1, maxWidth: 120 }}
+            onClick={openVideo}
+          >
+            Video
+          </Button>
+        )}
         <Button
           variant="primary"
           style={{ minWidth: 90, color: "#fff", background: "#6c2eb7", border: "none", flex: 1, maxWidth: 120 }}
@@ -176,36 +188,8 @@ function ProjectCard({ imgPath, imgPaths = [], title, description, fullDescripti
           View Full Details
         </Button>
       </div>
-      {showGallery && title === "AI-Vital" && (
-        <div style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100vw",
-          height: "100vh",
-          background: "rgba(0,0,0,0.85)",
-          zIndex: 9999,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center"
-        }} onClick={closeGallery}>
-          <div style={{ position: "relative", maxWidth: 700, width: "90%", background: "#232f47", borderRadius: 12, boxShadow: "0 6px 24px rgba(0,0,0,0.5)", padding: 24, display: "flex", flexDirection: "column", alignItems: "center" }} onClick={e => e.stopPropagation()}>
-            <div style={{ width: "100%", maxHeight: 400, marginBottom: 16 }}>
-              <iframe
-                src="https://drive.google.com/file/d/16WaCImup-IJK0gs1gDGojiZPbU3ey9i2/preview"
-                width="100%"
-                height="400"
-                allow="autoplay"
-                style={{ border: 0, borderRadius: 8 }}
-                title="AI-Vital Demo Video"
-              ></iframe>
-            </div>
-            <Button variant="secondary" onClick={closeGallery} style={{ marginTop: 8 }}>Close</Button>
-          </div>
-        </div>
-      )}
-      {/* Only show gallery for images, not for AI-Vital demo video */}
-      {showGallery && title !== "AI-Vital" && imgPaths.length > 0 && (
+      {/* Gallery Modal */}
+      {showGallery && imgPaths.length > 0 && (
         <div style={{
           position: "fixed",
           top: 0,
@@ -226,6 +210,35 @@ function ProjectCard({ imgPath, imgPaths = [], title, description, fullDescripti
               <Button variant="primary" onClick={nextGalleryImage} style={{ minWidth: 100, background: "#2196f3", border: "none" }}>Next</Button>
             </div>
             <Button variant="secondary" onClick={closeGallery} style={{ marginTop: 8 }}>Close</Button>
+          </div>
+        </div>
+      )}
+      {/* Video Modal */}
+      {showVideo && videoUrl && (
+        <div style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          background: "rgba(0,0,0,0.85)",
+          zIndex: 9999,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }} onClick={closeVideo}>
+          <div style={{ position: "relative", maxWidth: 700, width: "90%", background: "#232f47", borderRadius: 12, boxShadow: "0 6px 24px rgba(0,0,0,0.5)", padding: 24, display: "flex", flexDirection: "column", alignItems: "center" }} onClick={e => e.stopPropagation()}>
+            <div style={{ width: "100%", maxHeight: 400, marginBottom: 16 }}>
+              <iframe
+                src={videoUrl}
+                width="100%"
+                height="400"
+                allow="autoplay"
+                style={{ border: 0, borderRadius: 8 }}
+                title={`${title} Demo Video`}
+              ></iframe>
+            </div>
+            <Button variant="secondary" onClick={closeVideo} style={{ marginTop: 8 }}>Close</Button>
           </div>
         </div>
       )}

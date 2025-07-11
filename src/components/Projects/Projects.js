@@ -21,7 +21,8 @@ function Projects() {
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={ecosequencher}
+              imgPaths={[ecosequencher]}
+              videoUrl="https://drive.google.com/file/d/1QwQw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw/preview" // Replace with actual video if available
               isBlog={false}
               title="Eco-Sequencher"
               description="A smart reverse vending machine that converts plastic waste into clean drinking water. Features include AI-powered bottle detection, RFID-based point system, and advanced water filtration. The system promotes eco-friendly behavior while providing accessible clean water solutions."
@@ -33,8 +34,8 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={aivital}
               imgPaths={Array.from({length: 33}, (_, i) => require(`../../../Images/AI-Vital/AI${33-i}.PNG`))}
+              videoUrl="https://drive.google.com/file/d/16WaCImup-IJK0gs1gDGojiZPbU3ey9i2/preview"
               isBlog={false}
               title="AI-Vital"
               description="An advanced health monitoring system that combines biomedical sensors with AI-driven analysis. Features real-time vital sign monitoring, RFID-based patient identification, and intelligent diagnostic feedback. Perfect for clinics, telemedicine, and smart health stations."
@@ -46,7 +47,8 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={vigitaleye}
+              imgPaths={[vigitaleye]}
+              // videoUrl can be added here if available
               isBlog={false}
               title="Vigital-Eye"
               description="An AI-powered surveillance system with facial recognition and motion detection. Features include real-time alerts via Telegram, remote camera control, and a web interface for monitoring. Provides proactive security solutions for homes and facilities."
@@ -58,7 +60,8 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={smartstorage}
+              imgPaths={[smartstorage]}
+              // videoUrl can be added here if available
               isBlog={false}
               title="Smart Storage"
               description="Used the plant disease dataset from Kaggle and trained a image classifer model using 'PyTorch' framework using CNN and Transfer Learning with 38 classes of various plant leaves. The model was successfully able to detect diseased and healthy leaves of 14 unique plants. I was able to achieve an accuracy of 98% by using Resnet34 pretrained model."
@@ -69,7 +72,8 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={cncpcbfab}
+              imgPaths={[cncpcbfab]}
+              // videoUrl can be added here if available
               isBlog={false}
               title="CNC PCB Fabrication"
               description="Using 'Natural Launguage Processing' for the detection of suicide-related posts and user's suicide ideation in cyberspace  and thus helping in sucide prevention."
@@ -79,7 +83,8 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={etindatracker}
+              imgPaths={[etindatracker]}
+              // videoUrl can be added here if available
               isBlog={false}
               title="eTinda Tracker"
               description="Trained a CNN classifier using 'FER-2013 dataset' with Keras and tensorflow backened. The classifier sucessfully predicted the various types of emotions of human. And the highest accuracy obtained with the model was 60.1%. Then used Open-CV to detect the face in an image and then pass the face to the classifer to predict the emotion of a person."
