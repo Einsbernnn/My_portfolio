@@ -13,6 +13,7 @@ function Home() {
         flexDirection: "column",
         justifyContent: "center",
         background: "none",
+        padding: "20px 0",
       }}
     >
       <Container
@@ -31,81 +32,146 @@ function Home() {
           className="home-content"
           style={{
             maxWidth: 1200,
-            background: "rgba(35,47,71,0.85)",
-            borderRadius: 24,
-            boxShadow: "0 8px 32px rgba(33,150,243,0.18)",
-            padding: "48px 32px",
-            marginTop: 40,
-            marginBottom: 40,
+            background: "rgba(15, 23, 42, 0.95)",
+            borderRadius: 20,
+            boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)",
+            padding: "60px 40px",
+            marginTop: 20,
+            marginBottom: 20,
+            border: "1px solid rgba(59, 130, 246, 0.1)",
+            backdropFilter: "blur(10px)",
           }}
         >
           <Row style={{ alignItems: "center" }}>
             <Col
-              md={6}
+              lg={6}
+              md={12}
               className="home-header"
-              style={{ textAlign: "center" }}
+              style={{ 
+                textAlign: "left",
+                marginBottom: { xs: 40, md: 0 }
+              }}
             >
-              <h1
-                className="heading"
-                style={{
-                  fontSize: 44,
-                  fontWeight: 700,
-                  color: "#2196f3",
-                  marginBottom: 12,
-                  letterSpacing: 1,
-                }}
-              >
-                Hi There!{" "}
-                <span className="wave" role="img" aria-labelledby="wave">
-                  👋🏻
-                </span>
-              </h1>
-              <h2
-                className="heading-name"
-                style={{
-                  fontSize: 32,
-                  fontWeight: 600,
-                  color: "#fff",
-                  marginBottom: 18,
-                }}
-              >
-                I'M{" "}
-                <span
-                  className="main-name"
-                  style={{ color: "#2196f3", fontWeight: 800 }}
+              <div style={{ marginBottom: 24 }}>
+                <h1
+                  className="heading"
+                  style={{
+                    fontSize: { xs: 36, md: 48, lg: 52 },
+                    fontWeight: 700,
+                    color: "#60a5fa",
+                    marginBottom: 16,
+                    letterSpacing: 0.5,
+                    lineHeight: 1.2,
+                  }}
                 >
-                  JOHN PAUL LEGASPI
-                </span>
-              </h2>
+                  Hi There!{" "}
+                  <span 
+                    className="wave" 
+                    role="img" 
+                    aria-labelledby="wave"
+                    style={{
+                      display: "inline-block",
+                      animation: "wave 2s infinite",
+                      transformOrigin: "70% 70%",
+                    }}
+                  >
+                    👋🏻
+                  </span>
+                </h1>
+                <h2
+                  className="heading-name"
+                  style={{
+                    fontSize: { xs: 24, md: 28, lg: 32 },
+                    fontWeight: 600,
+                    color: "#f8fafc",
+                    marginBottom: 24,
+                    lineHeight: 1.3,
+                  }}
+                >
+                  I'M{" "}
+                  <span
+                    className="main-name"
+                    style={{ 
+                      color: "#60a5fa", 
+                      fontWeight: 800,
+                      background: "linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    JOHN PAUL LEGASPI
+                  </span>
+                </h2>
+              </div>
+              
               <div
                 style={{
-                  padding: 24,
-                  background: "rgba(33,150,243,0.08)",
-                  borderRadius: 12,
-                  marginBottom: 18,
-                  color: "#fff",
-                  fontSize: 20,
-                  fontWeight: 400,
-                  boxShadow: "0 2px 8px rgba(33,150,243,0.08)",
+                  padding: "28px 24px",
+                  background: "rgba(59, 130, 246, 0.08)",
+                  borderRadius: 16,
+                  marginBottom: 32,
+                  border: "1px solid rgba(59, 130, 246, 0.15)",
+                  boxShadow: "0 4px 20px rgba(59, 130, 246, 0.1)",
                 }}
               >
-                <Type />
+                <div style={{
+                  color: "#e2e8f0",
+                  fontSize: { xs: 18, md: 20 },
+                  fontWeight: 500,
+                  lineHeight: 1.5,
+                }}>
+                  <Type />
+                </div>
+              </div>
+              
+              <div style={{
+                fontSize: { xs: 16, md: 18 },
+                color: "#cbd5e1",
+                lineHeight: 1.6,
+                marginBottom: 32,
+              }}>
+                Passionate developer creating innovative solutions with modern technologies.
               </div>
             </Col>
+            
             <Col
-              md={6}
-              style={{ textAlign: "center", paddingBottom: 20 }}
+              lg={6}
+              md={12}
+              style={{ 
+                textAlign: "center", 
+                paddingTop: { xs: 40, lg: 0 },
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
             >
-              <img
-                src={homeLogo}
-                alt="home pic"
-                className="img-fluid"
-                style={{
-                  maxHeight: "420px",
-                  borderRadius: 18,
-                  boxShadow: "0 4px 24px rgba(33,150,243,0.12)",
-                }}
-              />
+              <div style={{
+                position: "relative",
+                maxWidth: "100%",
+                height: "auto",
+              }}>
+                <img
+                  src={homeLogo}
+                  alt="home pic"
+                  className="img-fluid"
+                  style={{
+                    maxHeight: "450px",
+                    borderRadius: 20,
+                    boxShadow: "0 20px 40px rgba(59, 130, 246, 0.2)",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                    filter: "drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3))",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = "translateY(-5px)";
+                    e.target.style.boxShadow = "0 25px 50px rgba(59, 130, 246, 0.3)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = "translateY(0)";
+                    e.target.style.boxShadow = "0 20px 40px rgba(59, 130, 246, 0.2)";
+                  }}
+                />
+              </div>
             </Col>
           </Row>
         </Container>
