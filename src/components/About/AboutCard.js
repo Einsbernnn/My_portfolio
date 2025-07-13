@@ -1,46 +1,95 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
-import { ImPointRight } from "react-icons/im";
+import { Container, Row, Col, Card } from "react-bootstrap";
+import { 
+  ImPointRight, 
+  FaGraduationCap, 
+  FaCode, 
+  FaGamepad, 
+  FaMusic, 
+  FaRocket 
+} from "react-icons/fa";
 
 function AboutCard() {
   return (
-    <Card className="quote-card-view">
-      <Card.Body>
-        <blockquote className="blockquote mb-0">
-          <p style={{ textAlign: "justify" }}>
-            Hi everyone! I'm <span className="purple">John Paul Legaspi</span> from <span className="purple">Hermosa, Bataan, Philippines.<span className="purple"> </span>Contact me at +63946-3845-548.</span>
-            <br />
-            I hold a Bachelor of Science in Computer Engineering (BSCpE) from Eastwoods Professional College of Science and Technology, Inc. During my college years, I worked with clients from various schools—helping bring their capstone and thesis projects to life with real, working prototypes.
-            <br />
-            <br />
-            <span className="purple">💻 What I Do</span>
-            <br />
-            I'm an experienced developer with a strong foundation in both software and embedded systems. I enjoy creating practical solutions—from writing backend code to designing microcontroller-based systems.
-            <br />
-            <br />
-            <span className="purple">🎮 Outside of Work</span>
-            <br />
-            When I'm not coding, you'll find me:
-          </p>
-          <ul>
-            <li className="about-activity">
-              <ImPointRight /> Playing video games 🎮
-            </li>
-            <li className="about-activity">
-              <ImPointRight /> Listening to music 🎧
-            </li>
-            <li className="about-activity">
-              <ImPointRight /> Geeking out over emerging technologies 🚀
-            </li>
-          </ul>
+    <div className="about-card-container">
+      <Card className="about-card">
+        <Card.Body className="about-card-body">
+          {/* Introduction Section */}
+          <div className="about-intro">
+            <h3 className="about-name">
+              Hi, I'm <span className="purple">John Paul Legaspi</span>
+            </h3>
+            <p className="about-location">
+              From <span className="purple">Hermosa, Bataan, Philippines</span>
+            </p>
+            <p className="about-contact">
+              📞 Contact: <span className="purple">+63946-3845-548</span>
+            </p>
+          </div>
 
-          <p style={{ color: "blue" }}>
-            "Technology is best when it brings people together."{" "}
-          </p>
-          <footer className="blockquote-footer">Matt Mullenweg</footer>
-        </blockquote>
-      </Card.Body>
-    </Card>
+          {/* Education Section */}
+          <div className="about-section">
+            <div className="section-header">
+              <FaGraduationCap className="section-icon" />
+              <h4 className="section-title">Education</h4>
+            </div>
+            <p className="section-content">
+              I hold a <strong>Bachelor of Science in Computer Engineering (BSCpE)</strong> from 
+              <span className="purple"> Eastwoods Professional College of Science and Technology, Inc.</span>
+            </p>
+            <p className="section-content">
+              During my college years, I worked with clients from various schools—helping bring their 
+              capstone and thesis projects to life with real, working prototypes.
+            </p>
+          </div>
+
+          {/* What I Do Section */}
+          <div className="about-section">
+            <div className="section-header">
+              <FaCode className="section-icon" />
+              <h4 className="section-title">What I Do</h4>
+            </div>
+            <p className="section-content">
+              I'm an experienced developer with a strong foundation in both software and embedded systems. 
+              I enjoy creating practical solutions—from writing backend code to designing microcontroller-based systems.
+            </p>
+          </div>
+
+          {/* Hobbies Section */}
+          <div className="about-section">
+            <div className="section-header">
+              <FaGamepad className="section-icon" />
+              <h4 className="section-title">Outside of Work</h4>
+            </div>
+            <p className="section-content">
+              When I'm not coding, you'll find me:
+            </p>
+            <ul className="hobbies-list">
+              <li className="hobby-item">
+                <FaGamepad className="hobby-icon" />
+                <span>Playing video games 🎮</span>
+              </li>
+              <li className="hobby-item">
+                <FaMusic className="hobby-icon" />
+                <span>Listening to music 🎧</span>
+              </li>
+              <li className="hobby-item">
+                <FaRocket className="hobby-icon" />
+                <span>Geeking out over emerging technologies 🚀</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Quote Section */}
+          <div className="about-quote">
+            <blockquote className="quote-text">
+              "Technology is best when it brings people together."
+            </blockquote>
+            <footer className="quote-author">— Matt Mullenweg</footer>
+          </div>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 
