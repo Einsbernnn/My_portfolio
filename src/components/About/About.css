@@ -94,9 +94,42 @@
   color: #94a3b8;
 }
 
-/* Skills Row */
+/* Skills & Tools Sections */
 .skills-row {
   margin-top: 40px;
+}
+
+.skills-section,
+.tools-section {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.skills-title,
+.tools-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Tech Icons Styling */
+.tech-icons {
+  text-align: center;
+  color: #60a5fa;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.tech-icons:hover {
+  color: #3b82f6;
+  transform: scale(1.1);
 }
 
 /* Responsive */
@@ -112,6 +145,15 @@
   
   .about-name {
     font-size: 1.3rem;
+  }
+  
+  .skills-title,
+  .tools-title {
+    font-size: 1.3rem;
+  }
+  
+  .tech-icons {
+    font-size: 2rem;
   }
 }
 
@@ -135,6 +177,20 @@
   .about-quote p {
     font-size: 1rem;
   }
+  
+  .skills-title,
+  .tools-title {
+    font-size: 1.2rem;
+  }
+  
+  .tech-icons {
+    font-size: 1.8rem;
+  }
+  
+  .skills-section,
+  .tools-section {
+    padding: 20px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -152,5 +208,19 @@
   
   .about-quote p {
     font-size: 0.9rem;
+  }
+  
+  .skills-title,
+  .tools-title {
+    font-size: 1.1rem;
+  }
+  
+  .tech-icons {
+    font-size: 1.6rem;
+  }
+  
+  .skills-section,
+  .tools-section {
+    padding: 15px;
   }
 } 

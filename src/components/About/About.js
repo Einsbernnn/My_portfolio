@@ -23,10 +23,20 @@ function About() {
         
         <Row className="skills-row">
           <Col lg={6} md={12}>
-            <Techstack />
+            <div className="skills-section">
+              <h3 className="skills-title">
+                <strong className="purple">Technologies</strong> I Use
+              </h3>
+              <Techstack />
+            </div>
           </Col>
           <Col lg={6} md={12}>
-            <Toolstack />
+            <div className="tools-section">
+              <h3 className="tools-title">
+                <strong className="purple">Tools</strong> I Use
+              </h3>
+              <Toolstack />
+            </div>
           </Col>
         </Row>
       </Container>
