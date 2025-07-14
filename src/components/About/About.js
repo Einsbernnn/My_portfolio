@@ -10,7 +10,9 @@ import "./About.css";
 function About() {
   return (
     <div className="about-section simple-about">
-      <Particle />
+      <div className="about-particles-bg">
+        <Particle />
+      </div>
       <Container>
         <h1 className="about-main-title">About Me</h1>
         <Row className="about-content-simple align-items-center">
