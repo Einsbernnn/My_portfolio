@@ -1,226 +1,174 @@
-/* Simple About Page Styles */
-.about-section {
-  padding: 80px 0;
+/* Simple, Readable About Page */
+.about-section.simple-about {
+  padding: 60px 0 40px 0;
   background: var(--section-background-color);
 }
 
-.about-content {
-  margin-bottom: 60px;
-  align-items: center;
-}
-
-.about-text {
-  padding-right: 30px;
-}
-
-.about-image {
-  text-align: center;
-}
-
-.about-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-/* About Card */
-.about-card {
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(96, 165, 250, 0.2);
-  border-radius: 15px;
-  backdrop-filter: blur(20px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-.about-title {
-  font-size: 2.2rem;
+.about-main-title {
+  font-size: 2.5rem;
   font-weight: 700;
   color: #f8fafc;
-  margin-bottom: 25px;
   text-align: center;
+  margin-bottom: 2.5rem;
+  letter-spacing: -1px;
 }
 
-.about-info {
-  margin-bottom: 25px;
+.about-content-simple {
+  margin-bottom: 2.5rem;
 }
 
-.about-name {
+.about-text-simple {
+  padding-right: 2rem;
+}
+
+.about-image-simple {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.about-image-simple img {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.about-divider {
+  margin: 2.5rem 0 2rem 0;
+  border: none;
+  border-top: 1.5px solid #334155;
+}
+
+.about-section-title {
   font-size: 1.4rem;
-  color: #f8fafc;
-  margin-bottom: 8px;
   font-weight: 600;
+  color: #60a5fa;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  letter-spacing: -0.5px;
 }
 
-.about-location {
-  font-size: 1rem;
+/* AboutCard Simple */
+.aboutcard-simple {
+  background: none;
+  padding: 0;
+  box-shadow: none;
+  border: none;
+}
+
+.aboutcard-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.5rem;
+}
+
+.aboutcard-location {
+  font-size: 1.05rem;
   color: #cbd5e1;
-  margin-bottom: 5px;
+  margin-bottom: 0.25rem;
 }
 
-.about-contact {
+.aboutcard-contact {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin-bottom: 1.2rem;
+}
+
+.aboutcard-desc {
+  font-size: 1.05rem;
+  color: #e2e8f0;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.aboutcard-quote {
+  font-size: 1.05rem;
+  color: #60a5fa;
+  font-style: italic;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.aboutcard-quote-author {
   font-size: 0.95rem;
   color: #94a3b8;
-  margin-bottom: 0;
+  font-style: normal;
+  margin-top: 0.25rem;
 }
 
-.about-description {
-  margin-bottom: 25px;
-}
-
-.about-description p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #cbd5e1;
-  text-align: justify;
-}
-
-.about-quote {
-  text-align: center;
-  padding-top: 20px;
-  border-top: 1px solid rgba(96, 165, 250, 0.2);
-}
-
-.about-quote p {
-  font-size: 1.1rem;
-  font-style: italic;
-  color: #60a5fa;
-  margin-bottom: 5px;
-  font-weight: 500;
-}
-
-.about-quote small {
-  font-size: 0.85rem;
-  color: #94a3b8;
-}
-
-/* Skills & Tools Sections */
-.skills-row {
-  margin-top: 40px;
-}
-
-.skills-section,
-.tools-section {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(96, 165, 250, 0.2);
-  border-radius: 12px;
-  padding: 25px;
-  margin-bottom: 20px;
-  backdrop-filter: blur(10px);
-}
-
-.skills-title,
-.tools-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #f8fafc;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* Tech Icons Styling */
+/* Tech/Tool Grids */
 .tech-icons {
   text-align: center;
   color: #60a5fa;
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  transition: all 0.3s ease;
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  transition: color 0.2s, transform 0.2s;
 }
-
 .tech-icons:hover {
   color: #3b82f6;
-  transform: scale(1.1);
+  transform: scale(1.08);
+}
+
+.about-tech-simple, .about-tools-simple {
+  margin-bottom: 2.5rem;
 }
 
 /* Responsive */
 @media (max-width: 992px) {
-  .about-text {
+  .about-text-simple {
     padding-right: 0;
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
   }
-  
-  .about-title {
+  .about-main-title {
     font-size: 2rem;
   }
-  
-  .about-name {
+  .aboutcard-name {
     font-size: 1.3rem;
   }
-  
-  .skills-title,
-  .tools-title {
-    font-size: 1.3rem;
+  .about-section-title {
+    font-size: 1.15rem;
   }
-  
   .tech-icons {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
 }
-
 @media (max-width: 768px) {
-  .about-section {
-    padding: 60px 0;
+  .about-section.simple-about {
+    padding: 40px 0 20px 0;
   }
-  
-  .about-title {
-    font-size: 1.8rem;
+  .about-main-title {
+    font-size: 1.5rem;
   }
-  
-  .about-name {
-    font-size: 1.2rem;
+  .aboutcard-name {
+    font-size: 1.1rem;
   }
-  
-  .about-description p {
-    font-size: 0.95rem;
-  }
-  
-  .about-quote p {
+  .about-section-title {
     font-size: 1rem;
   }
-  
-  .skills-title,
-  .tools-title {
-    font-size: 1.2rem;
+  .aboutcard-desc {
+    font-size: 0.95rem;
   }
-  
   .tech-icons {
-    font-size: 1.8rem;
-  }
-  
-  .skills-section,
-  .tools-section {
-    padding: 20px;
+    font-size: 1.3rem;
   }
 }
-
 @media (max-width: 576px) {
-  .about-title {
-    font-size: 1.6rem;
+  .about-image-simple img {
+    max-width: 180px;
   }
-  
-  .about-name {
-    font-size: 1.1rem;
+  .about-section-title {
+    font-size: 0.95rem;
   }
-  
-  .about-description p {
+  .aboutcard-desc {
     font-size: 0.9rem;
   }
-  
-  .about-quote p {
+  .aboutcard-quote {
     font-size: 0.9rem;
   }
-  
-  .skills-title,
-  .tools-title {
-    font-size: 1.1rem;
-  }
-  
   .tech-icons {
-    font-size: 1.6rem;
-  }
-  
-  .skills-section,
-  .tools-section {
-    padding: 15px;
+    font-size: 1.1rem;
   }
 } 

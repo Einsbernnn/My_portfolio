@@ -9,34 +9,29 @@ import "./About.css";
 
 function About() {
   return (
-    <div className="about-section">
+    <div className="about-section simple-about">
       <Particle />
       <Container>
-        <Row className="about-content">
-          <Col lg={6} md={12} className="about-text">
+        <h1 className="about-main-title">About Me</h1>
+        <Row className="about-content-simple align-items-center">
+          <Col lg={6} md={12} className="about-text-simple">
             <Aboutcard />
           </Col>
-          <Col lg={6} md={12} className="about-image">
+          <Col lg={6} md={12} className="about-image-simple">
             <img src={laptopImg} alt="John Paul Legaspi" />
           </Col>
         </Row>
-        
-        <Row className="skills-row">
-          <Col lg={6} md={12}>
-            <div className="skills-section">
-              <h3 className="skills-title">
-                <strong className="purple">Technologies</strong> I Use
-              </h3>
-              <Techstack />
-            </div>
+        <hr className="about-divider" />
+        <Row className="about-tech-simple">
+          <Col md={12}>
+            <h2 className="about-section-title">Technologies I Use</h2>
+            <Techstack />
           </Col>
-          <Col lg={6} md={12}>
-            <div className="tools-section">
-              <h3 className="tools-title">
-                <strong className="purple">Tools</strong> I Use
-              </h3>
-              <Toolstack />
-            </div>
+        </Row>
+        <Row className="about-tools-simple">
+          <Col md={12}>
+            <h2 className="about-section-title">Tools I Use</h2>
+            <Toolstack />
           </Col>
         </Row>
       </Container>
