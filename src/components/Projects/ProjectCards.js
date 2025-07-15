@@ -1,5 +1,6 @@
 import { Button } from "react-bootstrap";
 import React, { useState } from "react";
+import { FaGithub, FaExternalLinkAlt, FaImages, FaVideo, FaInfoCircle } from "react-icons/fa";
 
 function ProjectCard({ imgPaths = [], videoUrl, title, description, fullDescription, ghLink, demoLink, isBlog }) {
   const [current, setCurrent] = useState(0);
@@ -7,6 +8,7 @@ function ProjectCard({ imgPaths = [], videoUrl, title, description, fullDescript
   const [showGallery, setShowGallery] = useState(false);
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [showVideo, setShowVideo] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
 
   // Function to truncate description
   const truncateDescription = (text, maxLength = 150) => {
@@ -43,6 +45,27 @@ function ProjectCard({ imgPaths = [], videoUrl, title, description, fullDescript
 
   // Use first image for card preview
   const currentImage = imgPaths.length > 0 ? imgPaths[0] : null;
+
+  // Button style helpers
+  const buttonBase = {
+    minWidth: 90,
+    color: "#fff",
+    border: "none",
+    flex: 1,
+    maxWidth: 120,
+    display: 'flex',
+    alignItems: 'center',
+    gap: 6,
+    opacity: 1,
+    cursor: 'pointer',
+  };
+  const buttonDisabled = {
+    ...buttonBase,
+    background: '#888',
+    opacity: 0.6,
+    cursor: 'not-allowed',
+    pointerEvents: 'none',
+  };
 
   return (
     <div className="project-card-inner" style={{
@@ -144,48 +167,53 @@ function ProjectCard({ imgPaths = [], videoUrl, title, description, fullDescript
         )}
       </div>
       <div className="project-buttons" style={{ marginTop: "auto", display: "flex", justifyContent: "center", gap: "10px", width: "calc(100% - 20px)", flexWrap: "wrap" }}>
+        {/* GitHub Button */}
         <Button
           href={ghLink || undefined}
           target={ghLink ? "_blank" : undefined}
           rel={ghLink ? "noopener noreferrer" : undefined}
-          variant="primary"
-          style={{ minWidth: 90, color: "#fff", background: "#6c2eb7", border: "none", flex: 1, maxWidth: 120 }}
+          variant="dark"
+          style={ghLink ? { ...buttonBase, background: "#24292e" } : buttonDisabled}
           disabled={!ghLink}
         >
-          GitHub
+          <FaGithub /> GitHub
         </Button>
+        {/* Demo Button */}
         <Button
           href={demoLink || undefined}
           target={demoLink ? "_blank" : undefined}
           rel={demoLink ? "noopener noreferrer" : undefined}
-          variant="primary"
-          style={{ minWidth: 90, color: "#fff", background: "#6c2eb7", border: "none", flex: 1, maxWidth: 120 }}
+          variant="success"
+          style={demoLink ? { ...buttonBase, background: "#28a745" } : buttonDisabled}
           disabled={!demoLink}
         >
-          Demo
+          <FaExternalLinkAlt /> Demo
         </Button>
+        {/* Gallery Button */}
+        <Button
+          variant="info"
+          style={imgPaths.length > 1 ? { ...buttonBase, background: "#17a2b8" } : buttonDisabled}
+          onClick={imgPaths.length > 1 ? openGallery : undefined}
+          disabled={imgPaths.length <= 1}
+        >
+          <FaImages /> Gallery
+        </Button>
+        {/* Video Button */}
+        <Button
+          variant="warning"
+          style={videoUrl ? { ...buttonBase, background: "#ffc107" } : buttonDisabled}
+          onClick={videoUrl ? openVideo : undefined}
+          disabled={!videoUrl}
+        >
+          <FaVideo /> Video
+        </Button>
+        {/* Full Details Button */}
         <Button
           variant="primary"
-          style={{ minWidth: 90, color: "#fff", background: "#6c2eb7", border: "none", flex: 1, maxWidth: 120 }}
-          onClick={openGallery}
+          style={{ ...buttonBase, background: "#6c2eb7", maxWidth: 140 }}
+          onClick={() => setShowDetails(true)}
         >
-          Gallery
-        </Button>
-        {videoUrl && (
-          <Button
-            variant="primary"
-            style={{ minWidth: 90, color: "#fff", background: "#6c2eb7", border: "none", flex: 1, maxWidth: 120 }}
-            onClick={openVideo}
-          >
-            Video
-          </Button>
-        )}
-        <Button
-          variant="primary"
-          style={{ minWidth: 90, color: "#fff", background: "#6c2eb7", border: "none", flex: 1, maxWidth: 120 }}
-          onClick={() => {/* Add more details functionality */}}
-        >
-          View Full Details
+          <FaInfoCircle /> Full Details
         </Button>
       </div>
       {/* Gallery Modal */}
@@ -239,6 +267,34 @@ function ProjectCard({ imgPaths = [], videoUrl, title, description, fullDescript
               ></iframe>
             </div>
             <Button variant="secondary" onClick={closeVideo} style={{ marginTop: 8 }}>Close</Button>
+          </div>
+        </div>
+      )}
+      {/* Full Details Modal */}
+      {showDetails && (
+        <div style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          background: "rgba(0,0,0,0.85)",
+          zIndex: 9999,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }} onClick={() => setShowDetails(false)}>
+          <div style={{ position: "relative", maxWidth: 700, width: "90%", background: "#232f47", borderRadius: 12, boxShadow: "0 6px 24px rgba(0,0,0,0.5)", padding: 24, display: "flex", flexDirection: "column", alignItems: "center" }} onClick={e => e.stopPropagation()}>
+            <h2 style={{ color: "#2196f3", marginBottom: 16 }}>{title}</h2>
+            <img src={imgPaths[0]} alt={title} style={{ width: "100%", maxHeight: 300, objectFit: "contain", borderRadius: 8, marginBottom: 16, border: "2px solid #2196f3" }} />
+            <div style={{ color: "#fff", fontSize: 16, textAlign: "center", marginBottom: 16, whiteSpace: 'pre-line' }}>{fullDescription || description}</div>
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center', marginBottom: 16 }}>
+              <Button href={ghLink || undefined} target={ghLink ? "_blank" : undefined} rel={ghLink ? "noopener noreferrer" : undefined} variant="dark" style={ghLink ? { display: 'flex', alignItems: 'center', gap: 6, background: '#24292e', color: '#fff', border: 'none' } : buttonDisabled} disabled={!ghLink}><FaGithub /> GitHub</Button>
+              <Button href={demoLink || undefined} target={demoLink ? "_blank" : undefined} rel={demoLink ? "noopener noreferrer" : undefined} variant="success" style={demoLink ? { display: 'flex', alignItems: 'center', gap: 6, background: '#28a745', color: '#fff', border: 'none' } : buttonDisabled} disabled={!demoLink}><FaExternalLinkAlt /> Demo</Button>
+              <Button onClick={imgPaths.length > 1 ? () => { setShowDetails(false); setShowGallery(true); } : undefined} variant="info" style={imgPaths.length > 1 ? { display: 'flex', alignItems: 'center', gap: 6, background: '#17a2b8', color: '#fff', border: 'none' } : buttonDisabled} disabled={imgPaths.length <= 1}><FaImages /> Gallery</Button>
+              <Button onClick={videoUrl ? () => { setShowDetails(false); setShowVideo(true); } : undefined} variant="warning" style={videoUrl ? { display: 'flex', alignItems: 'center', gap: 6, background: '#ffc107', color: '#fff', border: 'none' } : buttonDisabled} disabled={!videoUrl}><FaVideo /> Video</Button>
+            </div>
+            <Button variant="secondary" onClick={() => setShowDetails(false)} style={{ marginTop: 8 }}>Close</Button>
           </div>
         </div>
       )}
